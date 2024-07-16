@@ -1,8 +1,8 @@
-import util
+import preprocessing
+import execution
 from rich import print
 
-
-target_files, target_reasons = util.get_target_files()
+target_files, target_reasons = preprocessing.get_target_files()
 
 print("The following files are queued for conversion:")
 for file, reason in zip(target_files, target_reasons):
@@ -13,5 +13,5 @@ is_proceed = input() in ["y", "yes"]
 if not is_proceed:
     quit()
 
-descrips, cmds = util.generate_conversions(target_files)
-util.exec_tasks(descrips, cmds)
+descrips, cmds = execution.generate_tasks(target_files)
+execution.execute_tasks(descrips, cmds)
