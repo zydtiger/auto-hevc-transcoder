@@ -50,6 +50,7 @@ def get_target_files() -> tuple[list[str], list[str]]:
     target_files = []
     for file in src_files:
         newpath = util.convert_path(file)
+        print(f"target path of source video file [cyan]{newpath}[/cyan]")
         is_target_exist = newpath in dest_files
         is_target_corrupt = False
 
