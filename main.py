@@ -1,3 +1,4 @@
+import sys
 import preprocessing
 import execution
 from rich import print
@@ -10,7 +11,7 @@ for file, reason in zip(target_files, target_reasons):
     print(f"{escape(file)} {reason}")
 
 print("\n[[green]y[/green]]es/[[red]n[/red]]o to proceed/terminate: ", end="")
-is_proceed = input() in ["y", "yes"]
+is_proceed = input() in ["y", "yes"] or "-y" in sys.argv
 if not is_proceed:
     quit()
 
