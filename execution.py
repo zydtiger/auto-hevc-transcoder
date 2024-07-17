@@ -2,6 +2,7 @@ import os
 import time
 import subprocess
 from rich import print
+from rich.markup import escape
 
 import util
 import config
@@ -31,7 +32,7 @@ def ensure_dirpath(file: str):
     newpath = util.convert_path(file)
     dirpath = os.path.dirname(newpath)
     if os.path.basename(dirpath) not in config.subdirs:
-        print(f"making dir [yellow]{dirpath}[/yellow]")
+        print(f"making dir [yellow]{escape(dirpath)}[/yellow]")
         os.makedirs(dirpath, exist_ok=True)
 
 
